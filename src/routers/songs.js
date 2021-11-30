@@ -55,7 +55,7 @@ router.get('/song/:title',
 
             const songByTitle = await Song.findOne({slug: req.params.title})
 
-            res.status(201).send(songByTitle)
+            res.status(201).send({title: songByTitle.title, album: songByTitle.album, year: songByTitle.year})
         }
         
         catch (e) { res.status(400).send(e) } 
